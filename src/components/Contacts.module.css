@@ -45,6 +45,7 @@ button:hover {
 }
 input:focus {
   outline: none;
+  border: none;
 }
 ::placeholder {
   color: #83497b;

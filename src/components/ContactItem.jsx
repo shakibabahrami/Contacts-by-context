@@ -37,17 +37,22 @@ function ContactItem() {
     setIsEditing(true);
     // console.log(inputs);
     // <div className={Styles.inputs}>
-      {inputs.map((input, index) => {
+    {
+      inputs.map((input, index) => {
         const editingContact = contacts.find((contact) => contact.id === id);
-        console.log(input);
+        // console.log(input);
         // console.log(editingContact.name);
-        const a = editingContact.name;
-        console.log(a);
-        setInputEdith({name: editingContact.name,
-            lastName: editingContact.lastName,
-            email: editingContact.email,
-            phone: editingContact.phone,})
-      })}
+        const a = editingContact.id;
+        // console.log(a);
+        setContact({
+          name: editingContact.name,
+          lastName: editingContact.lastName,
+          email: editingContact.email,
+          phone: editingContact.phone,
+          id: editingContact.id,
+        });
+      });
+    }
     // </div>;
     // const contactToChange = contacts.filter((contact) => contact.id === id)[0];
     // setNameInput(contactToChange.name);
