@@ -4,15 +4,10 @@ import Styles from "./ContactsItem.module.css";
 
 function ContactItem() {
   const {
-    inputs,
     contacts,
     dispatchContacts,
-    contact,
     setContact,
-    isEditing,
     setIsEditing,
-    inputEdith,
-    setInputEdith,
   } = useContactsContext();
 
   const showCheckbox = false;
@@ -33,40 +28,17 @@ function ContactItem() {
 
   const editHandler = (id) => {
     console.log(id);
-    // setEditing(id);
     setIsEditing(true);
-    // console.log(inputs);
-    // <div className={Styles.inputs}>
     {
-      inputs.map((input, index) => {
         const editingContact = contacts.find((contact) => contact.id === id);
-        // console.log(input);
-        // console.log(editingContact.name);
-        const a = editingContact.id;
-        // console.log(a);
         setContact({
           name: editingContact.name,
           lastName: editingContact.lastName,
           email: editingContact.email,
           phone: editingContact.phone,
           id: editingContact.id,
-        });
       });
     }
-    // </div>;
-    // const contactToChange = contacts.filter((contact) => contact.id === id)[0];
-    // setNameInput(contactToChange.name);
-    // setLastNameInput(contactToChange.lastName);
-    // setEmailInput(contactToChange.email);
-    // setPhoneInput(contactToChange.phone);
-    // const editingContact = {
-    //   id: contactToChange.id,
-    //   name: contactToChange.name,
-    //   lastName: contactToChange.lastName,
-    //   email: contactToChange.email,
-    //   phone: contactToChange.phone,
-    // };
-    // setContact(editingContact);
   };
 
   return (

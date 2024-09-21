@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useReducer, createContext, useContext, useState } from "react";
+import Data from "../components/db.json";
 
 const ContactsContext = createContext();
 const initialState = JSON.parse(localStorage.getItem("data")) || [];
-// const initialState =  [];
+// const initialState = [];
 
 const inputs = [
   { type: "text", name: "name", placeholder: "Name" },
@@ -14,6 +15,9 @@ const inputs = [
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "SETDATA":
+      console.log(action);
+      return state;
     case "ADD":
       return [...state, action.payload];
 
@@ -22,18 +26,8 @@ const reducer = (state, action) => {
 
     case "EDIT":
       console.log(state, action.payload.contact);
-      // const newState = state.map((item) =>
-      //   item.id !== action.payload.editingIndex ? item : action.payload.contact
-      // );
-      // const deletedState=state.filter(c=>c.id!==action.payload.contact.id)
-      // deletedState.splice()
-      state.splice(action.payload.editingIndex,1,action.payload.contact)
-      // console.log(newState);
-
+      state.splice(action.payload.editingIndex, 1, action.payload.contact);
       return [...state];
-    // return [...state, (state[action.payload.editingIndex] = payload.contact)];
-
-    // return [...state,action.payload];
 
     default:
       throw new Error("invalid action");
@@ -41,6 +35,13 @@ const reducer = (state, action) => {
 };
 
 const ContactsProvider = ({ children }) => {
+  
+  // useEffect(() => {
+  //   fetch(Data)
+  //     .then((response) => response.json())
+  //     .then((data) => dispatchContacts({ type: "SETDATA", payload: data }));
+  // }, []);
+
   const [isEditing, setIsEditing] = useState(false);
   const [contacts, dispatchContacts] = useReducer(reducer, initialState);
   const [contact, setContact] = useState({
@@ -50,11 +51,7 @@ const ContactsProvider = ({ children }) => {
     phone: "",
   });
   const [inputEdith, setInputEdith] = useState(contact);
-  // console.log("provider", contacts);
   localStorage.setItem("data", JSON.stringify(contacts));
-  // console.log(inputEdith);
-
-  // const
 
   return (
     <ContactsContext.Provider

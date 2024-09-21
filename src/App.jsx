@@ -1,22 +1,13 @@
-import { useState } from "react";
 import React from "react";
-import { useReducer, createContext } from "react";
 import Contacts from "./components/Contacts";
 import Styles from "./App.module.css";
 import ContactsList from "./components/ContactsList";
 import SidebarMenu from "./components/SidebarMenu";
 import { useContactsContext } from "./context/ContactsProvider";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "ADD":
-      return;
-  }
-};
-
 function App() {
   const { contacts } = useContactsContext();
-  // console.log(contacts.length);
+  
   return (
     <div className={Styles.container}>
       <div className={Styles.leftSideContainer}>

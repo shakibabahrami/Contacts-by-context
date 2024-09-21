@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import { useContext } from "react";
-// import ContactsContext from "../App";
 import { useContactsContext } from "../context/ContactsProvider";
 import styles from "./Contacts.module.css";
 import { v4 } from "uuid";
@@ -14,21 +12,17 @@ function Contacts() {
     setContact,
     isEditing,
     setIsEditing,
-    inputEdith,
   } = useContactsContext();
   const [alert, setAlert] = useState("");
 
   const changeHandler = (event) => {
     if (isEditing) {
-      // console.log(isEditing);
       const name = event.target.name;
       const value = event.target.value;
-      // console.log([name]);
       setContact((contact) => ({ ...contact, [name]: value }));
     }
     const name = event.target.name;
     const value = event.target.value;
-    // console.log([name]);
     setContact((contact) => ({ ...contact, [name]: value }));
   };
 
@@ -65,8 +59,6 @@ function Contacts() {
       return;
     }
     setAlert("");
-    // console.log(contact);
-    // console.log(contacts);
 
     const editingIndex = contacts.findIndex((c) => c.id === contact.id);
     console.log(editingIndex);
@@ -81,7 +73,6 @@ function Contacts() {
     });
     setIsEditing(false)
   };
-  // console.log(contact);
 
   return (
     <div className={styles.container}>
