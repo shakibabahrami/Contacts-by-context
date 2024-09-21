@@ -1,0 +1,21 @@
+.sidebarButtons{
+    /* background-color: aqua; */
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    top: 285px;
+    left: 0px;
+}
+.sidebarButtons button{
+    width: 100%;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.sidebarButtons button:hover{
+    width: 101%;
+    border-radius: 5px;
+    cursor: pointer;
+}

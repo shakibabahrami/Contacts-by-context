@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  width: calc(100% - 900px);
+  box-shadow: -1px -1px 5px silver;
+}
+.notebook {
+  font-size: 3.5rem;
+  display: inline-block;
+  width: 7rem;
+  height: 7rem;
+  text-align: center;
+  background-color: #83497b;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  left:100px;
+  box-shadow: -2px -2px 5px silver, 2px 2px 5px silver;
+}
+.container {
+  width: calc(100% - 900px);
+  position: relative;
+}

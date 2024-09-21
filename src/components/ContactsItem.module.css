@@ -1,0 +1,19 @@
+.delete {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.checkbox {
+  position: absolute;
+  left: 10px;
+  top: 35%;
+}
+.edit {
+  position: absolute;
+  top: 0;
+  right: 40px;
+}
+.checkbox:hover,
+.edit:hover {
+  cursor: pointer;
+}

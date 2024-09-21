@@ -1,0 +1,39 @@
+.container {
+  max-width: 1200px;
+  height: 650px;
+  margin: 50px auto;
+  box-shadow: 5px 5px 5px silver, -5px -5px 5px silver;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+}
+.leftSideContainer {
+  max-width: 900px;
+  height: 35%;
+  text-align: center;
+  background-color: #83497b25;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: "scroll";
+}
+.nothingAdded {
+  background-color: #83497b25;
+  width: 100%;
+  height: 100px;
+  margin-top: 5px;
+  line-height: 100px;
+  text-align: center;
+}
+.header {
+  text-align: center;
+  max-width: 900px;
+  margin-top: 30px;
+  color: #83497b;
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  .container {
+    max-width: calc(100% - 80px);
+  }
+}
