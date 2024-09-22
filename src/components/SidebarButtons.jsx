@@ -1,28 +1,43 @@
 import React from "react";
 import Styles from "./SidebarButtons.module.css";
+import { useContactsContext } from "../context/ContactsProvider";
 
 function SidebarButtons() {
-  let res = [];
+  const {
+    contacts,
+    dispatchContacts,
+    contact,
+    setContact,
+    isEditing,
+    showCheckbox,
+    selectedArray,
+    setSelectedArray,
+    setShowCheckbox,
+    isSearching,
+    setIsSearching,
+  } = useContactsContext();
 
-  const deleteButton = () => {};
-  const showCheckbox = false;
+  const deleteButton = () => {
+    setShowCheckbox(!showCheckbox);
+  };
   const deleteSelected = () => {
-    // contacts.forEach((contact) => {
-    //   selectedArray.includes(contact.id) &&
-    //     (res = contacts.filter((c) => c.id !== contact.id));
-    // });
-    // console.log(res);
-    // console.log(contacts);
-    // console.log(selectedArray);
-    // setContacts(res);
+    let res = contacts;
+    contacts.forEach((contact) => {
+      selectedArray.includes(contact.id) &&
+        (res = res.filter((c) => c.id !== contact.id));
+    });
+    dispatchContacts({ type: "DELETE", payload: res });
   };
 
-  const themeButton = () => {};
+  const searchButton = () => {
+    console.log("search");
+    setIsSearching(!isSearching);
+  };
 
   return (
     <div className={Styles.sidebarButtons}>
-      <button onClick={deleteButton}>Delete</button>
-      <button onClick={themeButton}>Theme</button>
+      <button onClick={deleteButton}>Group Delete</button>
+      <button onClick={searchButton}>Search Contact</button>
       {showCheckbox && (
         <button
           className={Styles.deleteSelectedButton}

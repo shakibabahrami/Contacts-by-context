@@ -8,15 +8,17 @@ function ContactItem() {
     dispatchContacts,
     setContact,
     setIsEditing,
+    showCheckbox,
+    selectedArray,
+    setSelectedArray,
   } = useContactsContext();
 
-  const showCheckbox = false;
   const checkboxHandler = (id) => {
-    // selectedArray.findIndex((item) => item === id) === -1
-    //   ? setSelectedArray((selectedArray) => [...selectedArray, id])
-    //   : setSelectedArray((selectedArray) => [
-    //       ...selectedArray.filter((item) => item !== id),
-    //     ]);
+    selectedArray.findIndex((item) => item === id) === -1
+      ? setSelectedArray((selectedArray) => [...selectedArray, id])
+      : setSelectedArray((selectedArray) => [
+          ...selectedArray.filter((item) => item !== id),
+        ]);
   };
 
   const deleteHandler = (id) => {
@@ -30,13 +32,13 @@ function ContactItem() {
     console.log(id);
     setIsEditing(true);
     {
-        const editingContact = contacts.find((contact) => contact.id === id);
-        setContact({
-          name: editingContact.name,
-          lastName: editingContact.lastName,
-          email: editingContact.email,
-          phone: editingContact.phone,
-          id: editingContact.id,
+      const editingContact = contacts.find((contact) => contact.id === id);
+      setContact({
+        name: editingContact.name,
+        lastName: editingContact.lastName,
+        email: editingContact.email,
+        phone: editingContact.phone,
+        id: editingContact.id,
       });
     }
   };

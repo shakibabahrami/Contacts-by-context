@@ -35,7 +35,6 @@ const reducer = (state, action) => {
 };
 
 const ContactsProvider = ({ children }) => {
-  
   // useEffect(() => {
   //   fetch(Data)
   //     .then((response) => response.json())
@@ -43,6 +42,9 @@ const ContactsProvider = ({ children }) => {
   // }, []);
 
   const [isEditing, setIsEditing] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showCheckbox, setShowCheckbox] = useState(false);
+  const [selectedArray, setSelectedArray] = useState([]);
   const [contacts, dispatchContacts] = useReducer(reducer, initialState);
   const [contact, setContact] = useState({
     name: "",
@@ -52,6 +54,7 @@ const ContactsProvider = ({ children }) => {
   });
   const [inputEdith, setInputEdith] = useState(contact);
   localStorage.setItem("data", JSON.stringify(contacts));
+  console.log(contacts);
 
   return (
     <ContactsContext.Provider
@@ -65,6 +68,12 @@ const ContactsProvider = ({ children }) => {
         setIsEditing,
         inputEdith,
         setInputEdith,
+        showCheckbox,
+        setShowCheckbox,
+        selectedArray,
+        setSelectedArray,
+        isSearching,
+        setIsSearching,
       }}
     >
       {children}

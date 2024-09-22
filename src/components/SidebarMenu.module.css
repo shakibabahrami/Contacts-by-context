@@ -14,10 +14,28 @@
   border-radius: 50%;
   position: absolute;
   top: 50px;
-  left:100px;
+  left: 100px;
   box-shadow: -2px -2px 5px silver, 2px 2px 5px silver;
 }
 .container {
   width: calc(100% - 900px);
   position: relative;
+}
+.searchBox {
+  position: absolute;
+  top: 450px;
+  right: 10%;
+  padding: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  border: 2px solid #83497b ;
+  border-radius: 8px;
+  width: 80%;
+  padding: 8px;
+transition: all ease-in .2s;
+}
+.searchBox:hover{
+background-color: #83497b25;
 }
